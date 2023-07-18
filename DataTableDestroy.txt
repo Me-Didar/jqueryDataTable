@@ -1,0 +1,8 @@
+ //$("#data-table").dataTable().fnDestroy();
+    const tableId = "#data-table";
+    // Check if the table is a DataTable.
+    const tableObj = $.fn.dataTable.isDataTable(tableId);
+    // If the table is a DataTable, destroy it.
+    if (tableObj) {
+        $("#data-table").dataTable().fnDestroy();
+    }
