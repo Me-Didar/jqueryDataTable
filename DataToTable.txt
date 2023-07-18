@@ -1,0 +1,26 @@
+function intialDataload()
+{
+    var jsonData = [
+     { "name": "John Doe", "age": 30, "occupation": "Engineer" },
+     { "name": "Jane Smith", "age": 25, "occupation": "Designer" },
+     // Add more data objects as needed
+    ];
+
+
+    // Dynamically generate table headers based on JSON keys
+    var tableHeaders = Object.keys(jsonData[0]);
+    var headersHtml = "";
+    tableHeaders.forEach(function (header) {
+        headersHtml += "<th>" + header + "</th>";
+    });
+    $('#table-headers').html(headersHtml);
+
+    // Initialize DataTables plugin with JSON data
+    $('#data-table').DataTable({
+        data: jsonData,
+        columns: tableHeaders.map(function (header) {
+            return { data: header };
+        })
+    });
+
+}
